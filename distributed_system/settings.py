@@ -79,9 +79,15 @@ WSGI_APPLICATION = 'distributed_system.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+        'NAME': BASE_DIR / 'db.sqlite3',  # Default database
+    },
+    'orders': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'orders.db',  # Separate database for Orders
+    },
 }
+
+DATABASE_ROUTERS = ['core.routers.OrdersRouter']
 
 
 # Password validation
